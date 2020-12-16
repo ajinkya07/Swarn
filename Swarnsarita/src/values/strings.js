@@ -1,5 +1,6 @@
 export const strings = {
-  appName: 'VChains',
+  appName: 'SWARNSARITA',
+  appSubName: 'world class jewellery',
   //𝙶𝚞𝚛𝚞𝙰𝚙𝚙
   login: 'Log In',
   forgotPassText: 'Forgot Login Details?',
@@ -17,4 +18,5 @@ export const strings = {
   latestDesigns: 'Latest',
   bestSelling: 'Best',
   diwaliCollection: 'Diwali Collection',
+
 };

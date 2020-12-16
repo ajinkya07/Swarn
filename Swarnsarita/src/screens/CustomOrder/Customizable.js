@@ -18,7 +18,7 @@ import {
   Container,
   Content,
   Icon,
-  Picker,
+  // Picker,
   ActionSheet,
   Toast,
 } from 'native-base';
@@ -32,6 +32,7 @@ import { color } from '@values/colors';
 import { submitCustomOrder } from '@customOrder/CustomOrderAction';
 import Theme from '../../values/Theme';
 import { ScrollView } from 'react-native-gesture-handler';
+import { Picker } from '@react-native-community/picker';
 
 var BUTTONS = ['Take Photo', 'Choose from Library', 'Cancel'];
 var DESTRUCTIVE_INDEX = 2;
@@ -324,19 +325,19 @@ class Customizable extends Component {
     if (!netWeight) {
       this.showToast('Please enter net weight', 'danger');
     }
-    // else if (!length) {
-    //   this.showToast('Please enter length', 'danger');
-    // }
-    //  else if (!quantity) {
-    //   this.showToast('Please enter quantity', 'danger');
-    // } 
-    // else if (!date) {
-    //   this.showToast('Please select delivery date', 'danger');
-    // }
-    //  else if (date != '' && date1 > date2) {
-    //   // here showing alert hence > , in cart hitting api hence <
-    //   alert('Date must be 10 days greater');
-    // }
+    else if (!length) {
+      this.showToast('Please enter length', 'danger');
+    }
+    else if (!quantity) {
+      this.showToast('Please enter quantity', 'danger');
+    }
+    else if (!date) {
+      this.showToast('Please select delivery date', 'danger');
+    }
+    else if (date != '' && date1 > date2) {
+      // here showing alert hence > , in cart hitting api hence <
+      alert('Date must be 10 days greater');
+    }
     else if (!imageUrl) {
       this.showToast('Please add an image', 'danger');
     }

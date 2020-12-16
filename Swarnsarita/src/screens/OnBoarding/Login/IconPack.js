@@ -1,5 +1,5 @@
 export default {
-  LOGIN_BG: require('../../../assets/image/backg1.jpg'),
+  LOGIN_BG: require('../../../assets/image/backg1.png'),
   MOBILE_LOGO: require('../../../assets/image/BlueIcons/Mobile.png'),
   KEY_LOGO: require('../../../assets/image/Key.png'),
   //EYE_IMAGE: require('../../../assets/image/Account/eye.png'),
@@ -26,7 +26,7 @@ export default {
   ABOUT: require('../../../assets/image/Account/About.png'),
   //SOCIAL_MEDIA: require('../../../assets/image/Account/profile.png'),
   FORWARD: require('../../../assets/image/Account/Forward2-.png'),
-  VERIFY_BG: require('../../../assets/image/backg1.jpg'),
+  VERIFY_BG: require('../../../assets/image/backg1.png'),
   BACK_ICON: require('../../../assets/image/Account/back_button.png'),
   VERIFY_OTP_ICON: require('../../../assets/image/Account/Forward-Arrow.png'),
   CUSTOMORDER_BG: require('../../../assets/image/Account/CustomOrder_BG.png'),

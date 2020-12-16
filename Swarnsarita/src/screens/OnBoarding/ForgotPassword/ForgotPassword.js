@@ -39,6 +39,7 @@ import {
   validatePassword,
   validateUserName,
 } from '@values/validate';
+import { strings } from '@values/strings'
 
 class ForgotPassword extends React.Component {
   constructor(props) {
@@ -199,17 +200,19 @@ class ForgotPassword extends React.Component {
                     }}>
 
                     <View style={{ marginBottom: hp(5) }}>
+
                       <Text style={{
-                        fontFamily: 'Lato-Bold', textAlign: 'center',
-                        letterSpacing: 2, fontSize: 30, color: '#FFFFFF',
+                        fontFamily: 'Lato-Bold',
+                        textAlign: 'center', letterSpacing: 2, fontSize: 30, color: '#FFFFFF',
                       }}>
-                        V CHAINS
+                        {strings.appName}
                       </Text>
                       <Text style={{
                         fontFamily: 'Lato-Regular', marginTop: hp(0.5),
-                        fontSize: 14, color: '#0d185c', textAlign: 'center'
+                        fontSize: 18, color: '#eee', textAlign: 'center',
+                        letterSpacing: 1,
                       }}>
-                        THE CHAIN WIZARDS
+                        {strings.appSubName}
                       </Text>
 
                     </View>

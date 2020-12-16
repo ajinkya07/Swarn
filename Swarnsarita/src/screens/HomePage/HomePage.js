@@ -538,13 +538,21 @@ class HomePage extends Component {
               marginRight: hp(1),
             }}>
             <TouchableOpacity onPress={() => this.getProductGridOrNot(item)}>
-              <Image
-                resizeMode={'cover'}
-                style={{ height: hp(18), width: wp(35) }}
-                defaultSource={IconPack.APP_LOGO}
-                source={{ uri: baseUrl + item.image_name }}
-              />
-              {/* <_Text
+              {item.image_name != '' ?
+                <Image
+                  resizeMode={'cover'}
+                  style={{ height: hp(18), width: wp(35) }}
+                  defaultSource={IconPack.APP_LOGO}
+                  source={{ uri: baseUrl + item.image_name }}
+                /> : item.image_name == '' ?
+                  <Image
+                    resizeMode={'cover'}
+                    style={{ height: hp(18), width: wp(35) }}
+                    source={IconPack.APP_LOGO}
+                  /> :
+                  null
+              }
+              <_Text
                 numberOfLines={2}
                 style={{
                   ...Theme.ffLatoMedium18,
@@ -554,7 +562,7 @@ class HomePage extends Component {
                   left: 10,
                 }}>
                 {item.col_name}
-              </_Text> */}
+              </_Text>
             </TouchableOpacity>
           </View>
         )}
@@ -569,13 +577,23 @@ class HomePage extends Component {
               width: wp(63),
             }}>
             <TouchableOpacity onPress={() => this.getProductGridOrNot(item)}>
-              <Image
-                resizeMode={'cover'}
-                style={{ height: hp(18), width: wp(63) }}
-                defaultSource={IconPack.APP_LOGO}
-                source={{ uri: baseUrl + item.image_name }}
-              />
-              {/* <_Text
+              {item.image_name != '' ?
+                <Image
+                  resizeMode={'cover'}
+                  style={{ height: hp(18), width: wp(63) }}
+                  defaultSource={IconPack.APP_LOGO}
+                  source={{ uri: baseUrl + item.image_name }}
+                />
+                : item.image_name == '' ?
+                  <Image
+                    resizeMode={'cover'}
+                    style={{ height: hp(18), width: wp(63) }}
+                    source={IconPack.APP_LOGO}
+                  />
+                  :
+                  null
+              }
+              <_Text
                 numberOfLines={2}
                 style={{
                   ...Theme.ffLatoMedium18,
@@ -586,7 +604,7 @@ class HomePage extends Component {
                   textAlign: 'center',
                 }}>
                 {item.col_name}
-              </_Text> */}
+              </_Text>
             </TouchableOpacity>
           </View>
         )}
@@ -600,13 +618,23 @@ class HomePage extends Component {
               marginRight: hp(1),
             }}>
             <TouchableOpacity onPress={() => this.getProductGridOrNot(item)}>
-              <Image
-                resizeMode={'cover'}
-                style={{ height: hp(18), width: wp(63) }}
-                defaultSource={IconPack.APP_LOGO}
-                source={{ uri: baseUrl + item.image_name }}
-              />
-              {/* <_Text
+              {item.image_name != '' ?
+                <Image
+                  resizeMode={'cover'}
+                  style={{ height: hp(18), width: wp(63) }}
+                  defaultSource={IconPack.APP_LOGO}
+                  source={{ uri: baseUrl + item.image_name }}
+                />
+                : item.image_name == '' ?
+                  <Image
+                    resizeMode={'cover'}
+                    style={{ height: hp(18), width: wp(63) }}
+                    source={IconPack.APP_LOGO}
+                  />
+                  :
+                  null
+              }
+              <_Text
                 numberOfLines={2}
                 style={{
                   ...Theme.ffLatoMedium18,
@@ -616,7 +644,7 @@ class HomePage extends Component {
                   left: 10,
                 }}>
                 {item.col_name}
-              </_Text> */}
+              </_Text>
             </TouchableOpacity>
           </View>
         )}
@@ -631,13 +659,23 @@ class HomePage extends Component {
               width: wp(35),
             }}>
             <TouchableOpacity onPress={() => this.getProductGridOrNot(item)}>
-              <Image
-                resizeMode={'cover'}
-                style={{ height: hp(18), width: wp(35) }}
-                defaultSource={IconPack.APP_LOGO}
-                source={{ uri: baseUrl + item.image_name }}
-              />
-              {/* <_Text
+              {item.image_name != '' ?
+                <Image
+                  resizeMode={'cover'}
+                  style={{ height: hp(18), width: wp(35) }}
+                  defaultSource={IconPack.APP_LOGO}
+                  source={{ uri: baseUrl + item.image_name }}
+                />
+                : item.image_name == '' ?
+                  <Image
+                    resizeMode={'cover'}
+                    style={{ height: hp(18), width: wp(35) }}
+                    source={IconPack.APP_LOGO}
+                  />
+                  :
+                  null
+              }
+              <_Text
                 numberOfLines={2}
                 style={{
                   ...Theme.ffLatoMedium18,
@@ -648,7 +686,7 @@ class HomePage extends Component {
                   textAlign: 'center',
                 }}>
                 {item.col_name}
-              </_Text> */}
+              </_Text>
             </TouchableOpacity>
           </View>
         )}

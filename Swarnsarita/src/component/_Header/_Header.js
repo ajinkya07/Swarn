@@ -9,6 +9,8 @@ import {
 import { Header, Left, Body, Right, Button, Title } from 'native-base';
 import AsyncStorage from '@react-native-community/async-storage';
 import { Theme } from '@values/Theme';
+import { strings } from '@values/strings'
+
 
 class _Header extends Component {
   constructor(props) {
@@ -37,7 +39,7 @@ class _Header extends Component {
           paddingVertical: Platform.OS === 'ios' ? hp(2) : 2,
           backgroundColor: headerColor ? '#' + headerColor : '#fff',
         }}>
-        <Left style={{ marginLeft: hp(1), width: wp(30) }}>
+        <View>
           <Button transparent>
             {showBack ? (
               <Image
@@ -45,37 +47,45 @@ class _Header extends Component {
                 source={require('../../assets/image/Account/back_button.png')}
               />
             ) : (
-                <View style={{ marginTop: 2, marginBottom: 2, width: wp(40) }}>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    marginTop: 4,
+                    marginLeft: -10
+                  }}
+                >
 
                   <Image
-                    source={require('../../assets/vchain.png')}
-                    style={{ height: hp(5.5), width: wp(35), left: -25 }}
+                    source={require('../../assets/swarna-Home-Icon.png')}
+                    style={{ height: hp(5.5), }}
                     resizeMode={'contain'}
                   />
-                  {/* <Text
-                    style={{
-                      fontFamily: 'Lato-Bold',
-                      color: '#FFFFFF',
-                      fontSize: hp(2.5),
-                      letterSpacing: 0.2,
-                    }}>
-                    V CHAINS
-                </Text>
-                  <Text
-                    style={{
-                      //fontWeight: '700',
-                      fontFamily: 'Lato-Bold',
-                      color: '#000000',
-                      //marginTop: 2,
-                      fontSize: hp(1.5),
-                      letterSpacing: 1,
-                    }}>
-                    THE CHAIN WIZARDS
-                </Text> */}
+                  <View style={{ marginLeft: 5 }}>
+                    <Text
+                      style={{
+                        fontFamily: 'Lato-Bold',
+                        color: '#FFFFFF',
+                        fontSize: hp(2.5),
+                        letterSpacing: 0.2,
+                      }}>
+                      {strings.appName}
+                    </Text>
+                    <Text
+                      style={{
+                        fontFamily: 'Lato-Bold',
+                        color: '#eee',
+                        fontSize: hp(1.6),
+                        letterSpacing: 1,
+                      }}>
+                      {strings.appSubName}
+                    </Text>
+
+                  </View>
+
                 </View>
               )}
           </Button>
-        </Left>
+        </View>
 
         {/* right side operation */}
 

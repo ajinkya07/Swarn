@@ -34,7 +34,6 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 import { allParameters } from '@navigation/SceneAction';
 
-import { navigationRef } from '../../RootNavigation';
 
 import { Toast } from 'native-base'
 
@@ -107,7 +106,6 @@ class Scene extends React.Component {
     if (this.state.successAllParameterVersion > prevState.successAllParameterVersion) {
 
       const stat = allParameterData && allParameterData.user_status
-      console.log("stat", stat);
 
       if (stat != 'active') {
         this.setState({
@@ -321,8 +319,7 @@ class Scene extends React.Component {
     const { allParameterData } = this.props;
 
     return (
-      <NavigationContainer ref={navigationRef}>
-        {/* {isLoginValue !== '' && status == 'active' ? isLoginValue === true  ? this.getHomeScene() : this.getLoginScene() : this.getLoginScene()} */}
+      <NavigationContainer >
         {this.goToWhere()}
       </NavigationContainer>
     );

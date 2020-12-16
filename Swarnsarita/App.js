@@ -51,7 +51,6 @@ class App extends React.Component {
   }
 
   onOpenNotification = async (notify) => {
-
     console.warn('notify', notify);
   }
 

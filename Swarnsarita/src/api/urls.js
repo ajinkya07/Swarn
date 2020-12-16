@@ -1,12 +1,12 @@
 
 
-var url = "http://vchains.jewelmarts.in/webservices/"
+var url = "http://swrnsarita.jewelmarts.in/webservices/"
 
 export const urls = {
 
-    baseUrl: "http://vchains.jewelmarts.in/webservices/",
+    baseUrl: "http://swrnsarita.jewelmarts.in/webservices/",
 
-    imageUrl: "http://vchains.jewelmarts.in/",
+    imageUrl: "http://swrnsarita.jewelmarts.in/",
 
 
     Login: {

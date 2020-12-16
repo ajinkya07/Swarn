@@ -331,12 +331,11 @@ class AccountContainer extends Component {
               // onPress={() => Linking.openURL(aboutUS)}
               onPress={() => this.props.navigation.navigate('CustomWebview', { link: aboutUS, title: 'About Us' })}
             />
-            {/* <AccountRow
+            <AccountRow
               title="Privacy Policy"
               icon={IconPack.ABOUT}
-              // onPress={() => Linking.openURL(privacyPolicy)}
               onPress={() => this.props.navigation.navigate('CustomWebview', { link: privacyPolicy, title: 'Privacy Policy' })}
-            /> */}
+            />
 
             <AccountRow
               title="Terms & Conditions"
@@ -658,7 +657,7 @@ const styles = StyleSheet.create({
   accountRowViewContainer: {
     flexDirection: 'row',
     //justifyContent: 'space-between',
-    marginHorizontal: 25,
+    marginHorizontal: 22,
     alignItems: 'center',
     padding: 10,
   },
