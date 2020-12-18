@@ -546,7 +546,7 @@ class HomePage extends Component {
                   source={{ uri: baseUrl + item.image_name }}
                 /> : item.image_name == '' ?
                   <Image
-                    resizeMode={'cover'}
+                    resizeMode={'contain'}
                     style={{ height: hp(18), width: wp(35) }}
                     source={IconPack.APP_LOGO}
                   /> :
@@ -586,7 +586,7 @@ class HomePage extends Component {
                 />
                 : item.image_name == '' ?
                   <Image
-                    resizeMode={'cover'}
+                    resizeMode={'contain'}
                     style={{ height: hp(18), width: wp(63) }}
                     source={IconPack.APP_LOGO}
                   />
@@ -627,7 +627,7 @@ class HomePage extends Component {
                 />
                 : item.image_name == '' ?
                   <Image
-                    resizeMode={'cover'}
+                    resizeMode={'contain'}
                     style={{ height: hp(18), width: wp(63) }}
                     source={IconPack.APP_LOGO}
                   />
@@ -668,7 +668,7 @@ class HomePage extends Component {
                 />
                 : item.image_name == '' ?
                   <Image
-                    resizeMode={'cover'}
+                    resizeMode={'contain'}
                     style={{ height: hp(18), width: wp(35) }}
                     source={IconPack.APP_LOGO}
                   />

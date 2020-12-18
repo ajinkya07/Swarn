@@ -44,7 +44,7 @@ export default {
   BLUE_EMAIL: require('../../../assets/image/Profile/Email.png'),
   REMARK: require('../../../assets/image/BlueIcons/Remark.png'),
   SKY_LOGO: require('../../../assets/image/Account/skychainLogo.jpeg'),
-  APP_LOGO: require('../../../assets/image/LoginIcons/vchain.jpg'),
+  APP_LOGO: require('../../../assets/image/LoginIcons/swarn.png'),
 
   SEARCH_WHITE: require('../../../assets/image/search_5.png'),
   WHITE_CLOSE: require('../../../assets/image/Close.png')

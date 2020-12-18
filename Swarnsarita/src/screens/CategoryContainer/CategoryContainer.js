@@ -189,16 +189,25 @@ class CategoryContainer extends Component {
                 <Animatable.View animation="flipInX" style={{ paddingTop: hp(1), paddingBottom: hp(0.5) }}>
                   <View style={{ flexDirection: 'row', flex: 1, marginLeft: hp(2), marginRight: hp(2) }}>
                     <View style={{ flex: 0.25, justifyContent: 'flex-start', }}>
-                      <Image
-                        style={{
-                          height: hp(10), width: hp(10), borderRadius: 10,
-                          borderWidth: 0.4, borderColor: color.gray
-                        }}
-                        source={{ uri: baseUrl + item.image_name }}
-                        // defaultSource={require('../../assets/image/default.png')}
-                        defaultSource={IconPack.APP_LOGO}
-
-                      />
+                      {item.image_name != '' ?
+                        <Image
+                          style={{
+                            height: hp(10), width: hp(10), borderRadius: 10,
+                            borderWidth: 0.4, borderColor: color.gray
+                          }}
+                          source={{ uri: baseUrl + item.image_name }}
+                          defaultSource={IconPack.APP_LOGO}
+                        />
+                        : item.image_name == '' ?
+                          <Image
+                            style={{
+                              height: hp(10), width: hp(10), borderRadius: 10,
+                              borderWidth: 0.4, borderColor: color.gray
+                            }}
+                            source={IconPack.APP_LOGO}
+                          />
+                          : null
+                      }
                     </View>
 
                     <View style={{ alignContent: 'center', justifyContent: 'center', flex: 0.70 }}>
