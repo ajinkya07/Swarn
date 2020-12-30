@@ -617,8 +617,8 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   imageStyle: {
-    width: hp(3),
-    height: hp(3),
+    width: hp(2.5),
+    height: hp(2.5),
   },
   forwardIconStyle: {
     width: hp(2),
@@ -664,7 +664,7 @@ const styles = StyleSheet.create({
     // fontSize: hp(2.2),
     color: '#FFFFFF',
     // fontFamily: 'Lato-Regular',
-    ...Theme.ffLatoMedium18,
+    ...Theme.ffLatoMedium16,
 
   },
   borderStyle: {

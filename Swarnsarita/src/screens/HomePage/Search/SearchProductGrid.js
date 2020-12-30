@@ -528,7 +528,7 @@ class SearchProductGrid extends Component {
                 <TouchableOpacity
                   onPress={() => this.addProductToWishlist(item)}>
                   <Image
-                    source={require('../../../assets/Hertfill.png')}
+                    source={require('../../../assets/Heart.png')}
                     style={{ height: hp(3.1), width: hp(3) }}
                     resizeMode="contain"
                   />
@@ -548,7 +548,7 @@ class SearchProductGrid extends Component {
                 <TouchableOpacity
                   onPress={() => this.removeProductFromCartByOne(item)}>
                   <Image
-                    source={require('../../../assets/Minus1.png')}
+                    source={require('../../../assets/MinusBlock.png')}
                     style={{ height: hp(3), width: hp(3) }}
                     resizeMode="contain"
                   />
@@ -564,7 +564,7 @@ class SearchProductGrid extends Component {
                 <TouchableOpacity
                   onPress={() => this.addProductToCartPlusOne(item)}>
                   <Image
-                    source={require('../../../assets/Plus1.png')}
+                    source={require('../../../assets/PlusBlock.png')}
                     style={{ height: hp(3), width: hp(3) }}
                     resizeMode="contain"
                   />

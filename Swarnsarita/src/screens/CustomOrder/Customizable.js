@@ -18,7 +18,7 @@ import {
   Container,
   Content,
   Icon,
-  // Picker,
+  Picker,
   ActionSheet,
   Toast,
 } from 'native-base';
@@ -32,7 +32,7 @@ import { color } from '@values/colors';
 import { submitCustomOrder } from '@customOrder/CustomOrderAction';
 import Theme from '../../values/Theme';
 import { ScrollView } from 'react-native-gesture-handler';
-import { Picker } from '@react-native-community/picker';
+// import { Picker1 } from '@react-native-community/picker';
 
 var BUTTONS = ['Take Photo', 'Choose from Library', 'Cancel'];
 var DESTRUCTIVE_INDEX = 2;
@@ -385,20 +385,37 @@ class Customizable extends Component {
     let list = allParameterData && allParameterData.melting
     return (
       <View>
-        <Picker
-          iosIcon={<Icon type='FontAwesome' name='chevron-circle-down' style={{ fontSize: 20, }} />}
-          mode="dropdown"
-          style={{ height: 40, width: wp(55), top: 3 }}
-          selectedValue={karatValue}
-          onValueChange={(itemValue, itemIndex) => this.setSelectedValue(itemValue)
-          }>
-          {list && list.length > 0 ? (
-            list.map((listItem, index) => (
-              <Picker.Item label={(listItem.melting_name).toString()} value={parseInt(`${listItem.id}`)} />
-            )))
-            : null
-          }
-        </Picker>
+        {Platform.OS != 'ios' ?
+          <Picker
+            iosIcon={<Icon type='FontAwesome' name='chevron-circle-down' style={{ fontSize: 20, }} />}
+            mode="dropdown"
+            style={{ height: 40, width: wp(55), top: 3 }}
+            selectedValue={karatValue}
+            onValueChange={(itemValue, itemIndex) => this.setSelectedValue(itemValue)
+            }>
+            {list && list.length > 0 ? (
+              list.map((listItem, index) => (
+                <Picker.Item label={(listItem.melting_name).toString()} value={parseInt(`${listItem.id}`)} />
+              )))
+              : null
+            }
+          </Picker>
+          :
+          <Picker
+            iosIcon={<Icon type='FontAwesome' name='chevron-circle-down' style={{ fontSize: 20, }} />}
+            mode="dropdown"
+            style={{ height: 40, width: wp(55), top: 3 }}
+            selectedValue={karatValue}
+            onValueChange={(itemValue, itemIndex) => this.setSelectedValue(itemValue)
+            }>
+            {list && list.length > 0 ? (
+              list.map((listItem, index) => (
+                <Picker.Item label={(listItem.melting_name).toString()} value={parseInt(`${listItem.id}`)} />
+              )))
+              : null
+            }
+          </Picker>
+        }
       </View>
     );
   };
@@ -617,7 +634,6 @@ class Customizable extends Component {
                       isVisible={isDateTimePickerVisible}
                       onConfirm={date => this.handleDatePicked(date)}
                       onCancel={() => this.hideDateTimePicker()}
-                      minimumDate={new Date()}
                     />
                   )}
                 </View>
@@ -635,7 +651,7 @@ class Customizable extends Component {
                 width: 50,
                 height: 50,
               }}
-              source={require('../../assets/Plus1.png')}
+              source={require('../../assets/PlusBlock.png')}
             />
           </TouchableOpacity>
         </View>

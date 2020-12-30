@@ -541,13 +541,13 @@ class HomePage extends Component {
               {item.image_name != '' ?
                 <Image
                   resizeMode={'cover'}
-                  style={{ height: hp(18), width: wp(35) }}
+                  style={{ height: hp(18), width: wp(49) }}
                   defaultSource={IconPack.APP_LOGO}
                   source={{ uri: baseUrl + item.image_name }}
                 /> : item.image_name == '' ?
                   <Image
                     resizeMode={'contain'}
-                    style={{ height: hp(18), width: wp(35) }}
+                    style={{ height: hp(18), width: wp(49) }}
                     source={IconPack.APP_LOGO}
                   /> :
                   null
@@ -572,22 +572,22 @@ class HomePage extends Component {
             style={{
               backgroundColor: 'white',
               marginTop: -hp(19),
-              marginLeft: wp(36),
+              marginLeft: wp(50),
               height: hp(18),
-              width: wp(63),
+              width: wp(49),
             }}>
             <TouchableOpacity onPress={() => this.getProductGridOrNot(item)}>
               {item.image_name != '' ?
                 <Image
                   resizeMode={'cover'}
-                  style={{ height: hp(18), width: wp(63) }}
+                  style={{ height: hp(18), width: wp(49) }}
                   defaultSource={IconPack.APP_LOGO}
                   source={{ uri: baseUrl + item.image_name }}
                 />
                 : item.image_name == '' ?
                   <Image
                     resizeMode={'contain'}
-                    style={{ height: hp(18), width: wp(63) }}
+                    style={{ height: hp(18), width: wp(49) }}
                     source={IconPack.APP_LOGO}
                   />
                   :
@@ -614,21 +614,21 @@ class HomePage extends Component {
             style={{
               backgroundColor: 'white',
               height: hp(18),
-              width: wp(63),
+              width: wp(49),
               marginRight: hp(1),
             }}>
             <TouchableOpacity onPress={() => this.getProductGridOrNot(item)}>
               {item.image_name != '' ?
                 <Image
                   resizeMode={'cover'}
-                  style={{ height: hp(18), width: wp(63) }}
+                  style={{ height: hp(18), width: wp(49) }}
                   defaultSource={IconPack.APP_LOGO}
                   source={{ uri: baseUrl + item.image_name }}
                 />
                 : item.image_name == '' ?
                   <Image
                     resizeMode={'contain'}
-                    style={{ height: hp(18), width: wp(63) }}
+                    style={{ height: hp(18), width: wp(49) }}
                     source={IconPack.APP_LOGO}
                   />
                   :
@@ -654,22 +654,22 @@ class HomePage extends Component {
             style={{
               backgroundColor: 'white',
               marginTop: -hp(18),
-              marginLeft: wp(64),
+              marginLeft: wp(50),
               height: hp(18),
-              width: wp(35),
+              width: wp(49),
             }}>
             <TouchableOpacity onPress={() => this.getProductGridOrNot(item)}>
               {item.image_name != '' ?
                 <Image
                   resizeMode={'cover'}
-                  style={{ height: hp(18), width: wp(35) }}
+                  style={{ height: hp(18), width: wp(49) }}
                   defaultSource={IconPack.APP_LOGO}
                   source={{ uri: baseUrl + item.image_name }}
                 />
                 : item.image_name == '' ?
                   <Image
                     resizeMode={'contain'}
-                    style={{ height: hp(18), width: wp(35) }}
+                    style={{ height: hp(18), width: wp(49) }}
                     source={IconPack.APP_LOGO}
                   />
                   :
@@ -732,7 +732,7 @@ class HomePage extends Component {
                     numberOfLines={1}
                     fsSmall
                     style={{ ...Theme.ffLatoRegular13, color: '#000000' }}>
-                    Code :
+                    Code
                   </_Text>
                 </View>
                 <View
@@ -758,7 +758,7 @@ class HomePage extends Component {
                     numberOfLines={1}
                     fsSmall
                     style={{ ...Theme.ffLatoRegular13, color: '#000000' }}>
-                    Weight :
+                    Weight
                   </_Text>
                 </View>
                 <View
@@ -784,7 +784,7 @@ class HomePage extends Component {
                     numberOfLines={1}
                     fsSmall
                     style={{ ...Theme.ffLatoRegular13, color: '#000000' }}>
-                    Length
+                    Status
                   </_Text>
                 </View>
                 <View
@@ -810,7 +810,7 @@ class HomePage extends Component {
                   <TouchableOpacity
                     onPress={() => this.addToWishlist(item)}>
                     <Image
-                      source={require('../../assets/Hertfill.png')}
+                      source={require('../../assets/Heart.png')}
                       style={{ height: hp(3), width: hp(3) }}
                       resizeMode="contain"
                     />
@@ -832,7 +832,7 @@ class HomePage extends Component {
                     onPress={() => alert('inProgress')}
                     onPress={() => this.removeFromCartByOne(item)}>
                     <Image
-                      source={require('../../assets/Minus1.png')}
+                      source={require('../../assets/MinusBlock.png')}
                       style={{ height: hp(3.1), width: hp(3.1) }}
                       resizeMode='contain'
                     />
@@ -847,7 +847,7 @@ class HomePage extends Component {
                     onPress={() => alert('inProgress')}
                     onPress={() => this.addToCartPlusOne(item)}>
                     <Image
-                      source={require('../../assets/Plus1.png')}
+                      source={require('../../assets/PlusBlock.png')}
                       style={{ height: hp(3.1), width: hp(3.1) }}
                       resizeMode='contain'
                     />
@@ -1027,7 +1027,7 @@ class HomePage extends Component {
           // bounces={false}
           refreshControl={
             <RefreshControl
-              refreshing={isFetching}
+              refreshing={false}
               onRefresh={() => this.onRefresh()}
             />
           }
@@ -1154,7 +1154,6 @@ class HomePage extends Component {
                         width: wp(90),
                         marginTop: hp(1),
                       }}
-                      resizeMode="cover"
                     />
                   </View>
                 </SafeAreaView>

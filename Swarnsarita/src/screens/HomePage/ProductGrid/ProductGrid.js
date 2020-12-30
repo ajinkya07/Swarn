@@ -609,7 +609,7 @@ class ProductGrid extends Component {
       iconView,
     } = ProductGridStyle;
 
-    let url = urls.imageUrl + 'public/backend/product_images/small_image/'
+    let url = urls.imageUrl + 'public/backend/product_images/thumb_image/'
 
     const { isSelectPressed, selectedItem, selectedProducts } = this.state
 
@@ -642,6 +642,7 @@ class ProductGrid extends Component {
                 style={gridImage}
                 defaultSource={IconPack.APP_LOGO}
                 source={{ uri: url + item.image_name }}
+              // resizeMode='contain'
               />
 
             </TouchableOpacity>
@@ -690,7 +691,7 @@ class ProductGrid extends Component {
                 <TouchableOpacity
                   onPress={() => isSelectPressed ? this.selectProduct(item, item.product_inventory_id) : this.addProductToWishlist(item)}>
                   <Image
-                    source={require('../../../assets/Hertfill.png')}
+                    source={require('../../../assets/Heart.png')}
                     style={{ height: hp(3.1), width: hp(3), }}
                     resizeMode="contain"
                   />
@@ -710,7 +711,7 @@ class ProductGrid extends Component {
                 <TouchableOpacity
                   onPress={() => isSelectPressed ? this.showAlreadyToast() : this.removeProductFromCartByOne(item)}>
                   <Image
-                    source={require('../../../assets/Minus1.png')}
+                    source={require('../../../assets/MinusBlock.png')}
                     style={{ height: hp(3), width: hp(3) }}
                     resizeMode="contain"
                   />
@@ -726,7 +727,7 @@ class ProductGrid extends Component {
                 <TouchableOpacity
                   onPress={() => isSelectPressed ? this.showAlreadyToast() : this.addProductToCartPlusOne(item)}>
                   <Image
-                    source={require('../../../assets/Plus1.png')}
+                    source={require('../../../assets/PlusBlock.png')}
                     style={{ height: hp(3), width: hp(3) }}
                     resizeMode="contain"
                   />
@@ -889,7 +890,7 @@ class ProductGrid extends Component {
                       : this.addProductToWishlist(item)
                   }>
                   <Image
-                    source={require('../../../assets/Hertfill.png')}
+                    source={require('../../../assets/Heart.png')}
                     style={{ height: hp(3.1), width: hp(3), }}
                     resizeMode="contain"
                   />
@@ -918,7 +919,7 @@ class ProductGrid extends Component {
                       : this.removeProductFromCartByOne(item)
                   }>
                   <Image
-                    source={require('../../../assets/Minus1.png')}
+                    source={require('../../../assets/MinusBlock.png')}
                     style={{ height: hp(3), width: hp(3) }}
                     resizeMode="contain"
                   />
@@ -938,7 +939,7 @@ class ProductGrid extends Component {
                       : this.addProductToCartPlusOne(item)
                   }>
                   <Image
-                    source={require('../../../assets/Plus1.png')}
+                    source={require('../../../assets/PlusBlock.png')}
                     style={{ height: hp(3), width: hp(3) }}
                     resizeMode="contain"
                   />
@@ -1591,7 +1592,7 @@ class ProductGrid extends Component {
                 }}>
                 <Image
                   style={{ height: hp(2.8), width: hp(2.8), marginRight: hp(1.5) }}
-                  source={require('../../../assets/Sort1.png')}
+                  source={require('../../../assets/Sort.png')}
                 />
                 <_Text
                   fsHeading
@@ -1618,7 +1619,7 @@ class ProductGrid extends Component {
                 }}>
                 <Image
                   style={{ height: hp(2.8), width: hp(2.8), marginRight: hp(1.5) }}
-                  source={require('../../../assets/filter.png')}
+                  source={require('../../../assets/Filter.png')}
                 />
                 <_Text
                   fsHeading
@@ -1672,7 +1673,7 @@ class ProductGrid extends Component {
                 }}>
                 <Image
                   style={{ height: hp(2.8), width: hp(2.8), marginRight: hp(1.5) }}
-                  source={require('../../../assets/Hertfill.png')}
+                  source={require('../../../assets/Heart.png')}
                 />
                 <_Text
                   fsHeading
@@ -1933,7 +1934,7 @@ class ProductGrid extends Component {
                         <View style={styles.filter}>
                           <Image
                             style={[styles.filterImg, { top: 3 }]}
-                            source={require('../../../assets/filter.png')}
+                            source={require('../../../assets/Filter.png')}
                           />
                           <Text style={{ fontSize: 20, color: headerTheme ? '#' + headerTheme : '#19af81' }}>Filter</Text>
                         </View>

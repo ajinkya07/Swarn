@@ -131,7 +131,6 @@ class Container extends Component {
     const emailID = allParameterData.email
     const call = allParameterData.call
     const headerColor = allParameterData.theme_color ? allParameterData.theme_color : ''
-
     global.headerTheme = allParameterData.theme_color ? allParameterData.theme_color : ''
 
     return (

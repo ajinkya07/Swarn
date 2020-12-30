@@ -352,8 +352,7 @@ class ProductDetails extends React.Component {
     const { productDetailsStateData } = this.state;
     let url2 =
       urls.imageUrl +
-      (productDetailsStateData !== undefined &&
-        productDetailsStateData.zoom_image);
+      (productDetailsStateData !== undefined && productDetailsStateData.zoom_image);
 
     let item = data.item
     let index = data.index
@@ -370,13 +369,12 @@ class ProductDetails extends React.Component {
           <FastImage
             style={{ height: hp(38), width: wp(100), backgroundColor: '#d7d7d7' }}
             source={{ uri: url2 + item }}
-            resizeMode={FastImage.resizeMode.stretch}
+            resizeMode={FastImage.resizeMode.contain}
           />
         </View >
       </TouchableOpacity>
     );
   }
-  // 7738368891 9819
 
   carausalView2 = (bannerData) => {
     let { width, height } = Dimensions.get('window')
@@ -714,7 +712,7 @@ class ProductDetails extends React.Component {
                     <View style={styles.quantityContainer}>
                       <View>
                         <Text
-                          style={{ ...Theme.ffLatoRegular16, color: '#000000' }}>
+                          style={{ ...Theme.ffLatoRegular16, color: '#fff' }}>
                           Quantity
                         </Text>
                       </View>
@@ -753,13 +751,15 @@ class ProductDetails extends React.Component {
                         onChangeText={remark => this.setState({ remark })}
                         value={String(this.state.remark)}
                         placeholder="Remarks"
-                        placeholderTextColor="#000000"
+                        placeholderTextColor="#fff"
                       />
                     </View>
 
                     <View style={styles.descriptionContainer}>
                       <TouchableOpacity
-                        onPress={() => this.toggleDescriptionDetails()}>
+                        disabled={true}
+                      // onPress={() => this.toggleDescriptionDetails()}
+                      >
                         <View style={styles.descriptionRowContainer}>
                           <Text
                             style={{
@@ -818,8 +818,8 @@ class ProductDetails extends React.Component {
                         </>
                       ) : null}
 
-                      <View style={styles.customerDetailTopborder}></View>
-                      <Text
+                      <View style={styles.customerDetailTopborder} />
+                      {/* <Text
                         style={{
                           color: '#000000',
                           ...Theme.ffLatoBold15,
@@ -828,10 +828,10 @@ class ProductDetails extends React.Component {
                           marginHorizontal: 10,
                         }}>
                         Customizable Detail
-                      </Text>
+                      </Text> */}
 
                       {/* Melting */}
-                      <View
+                      {/* <View
                         style={{
                           flexDirection: 'row',
                           marginLeft: hp(3),
@@ -848,12 +848,11 @@ class ProductDetails extends React.Component {
                         </View>
                         {this.PickerDropDown()}
 
-                        {/* <PickerDropDown /> */}
-                      </View>
+                      </View> */}
 
                       {/* WEIGHT */}
 
-                      <View
+                      {/* <View
                         style={{
                           flexDirection: 'row',
                           marginLeft: hp(3),
@@ -871,11 +870,11 @@ class ProductDetails extends React.Component {
                         <View>
                           {this.PickerWeightDropDown(weightArray)}
                         </View>
-                      </View>
+                      </View> */}
 
                       {/* LENGTH */}
 
-                      {this.state.length !== '' &&
+                      {/* {this.state.length !== '' &&
                         <View
                           style={{
                             flexDirection: 'row',
@@ -895,10 +894,10 @@ class ProductDetails extends React.Component {
                             {this.PickerLengthDropDown(lengthArray)}
                           </View>
                         </View>
-                      }
+                      } */}
 
 
-                      <View style={styles.bottomTextContainer}>
+                      {/* <View style={styles.bottomTextContainer}>
                         <Text
                           style={{
                             ...Theme.ffLatoRegular15,
@@ -908,7 +907,8 @@ class ProductDetails extends React.Component {
                           Note: * There may be 10% variation (+/-) in the actual
                           weight.{' '}
                         </Text>
-                      </View>
+                      </View> */}
+
                       {/* Footer buttons */}
 
                       <View
@@ -1055,7 +1055,8 @@ const styles = StyleSheet.create({
     width: wp(30),
     textAlign: 'center',
     fontSize: 22,
-    color: color.brandColor,
+    color: '#fff',
+    borderBottomColor: '#d7d7d7',
   },
   incrementCountIcon: {
     width: hp(4),
@@ -1114,9 +1115,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   customerDetailTopborder: {
-    borderBottomColor: '#D3D3D3',
     marginVertical: hp(2.5),
-    borderBottomWidth: 1.5,
   },
   customizableContainer: {
     alignItems: 'center',

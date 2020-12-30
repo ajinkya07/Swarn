@@ -36,7 +36,8 @@ class _Header extends Component {
         style={{
           width: wp(100),
           height: hp(7.5),
-          paddingVertical: Platform.OS === 'ios' ? hp(2) : 2,
+          paddingVertical: Platform.OS === 'ios' ? 5 : 2,
+          marginLeft: -5,
           backgroundColor: headerColor ? '#' + headerColor : '#fff',
         }}>
         <View>
@@ -47,24 +48,17 @@ class _Header extends Component {
                 source={require('../../assets/image/Account/back_button.png')}
               />
             ) : (
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    marginTop: 4,
-                    marginLeft: -10
-                  }}
-                >
-
+                <View style={{ flexDirection: 'row', }}>
                   <Image
                     source={require('../../assets/swarna-Home-Icon.png')}
-                    style={{ height: hp(5.5), }}
+                    style={{ height: hp(5.5), top: 5 }}
                     resizeMode={'contain'}
                   />
-                  <View style={{ marginLeft: 5 }}>
+                  <View style={{ marginLeft: 5, marginTop: 2 }}>
                     <Text
                       style={{
                         fontFamily: 'Lato-Bold',
-                        color: '#FFFFFF',
+                        color: '#fff',
                         fontSize: hp(2.5),
                         letterSpacing: 0.2,
                       }}>
@@ -73,13 +67,12 @@ class _Header extends Component {
                     <Text
                       style={{
                         fontFamily: 'Lato-Bold',
-                        color: '#eee',
+                        color: '#fff',
                         fontSize: hp(1.6),
                         letterSpacing: 1,
                       }}>
                       {strings.appSubName}
                     </Text>
-
                   </View>
 
                 </View>

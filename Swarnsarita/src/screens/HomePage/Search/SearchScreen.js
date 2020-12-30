@@ -349,25 +349,11 @@ class SearchScreen extends Component {
                             setFromDate={(d) => this.setFromDate(d)}
                             fromDate={this.state.fromDate}
                         />
-
                     </View>
                     <_Text fsMedium style={{ marginTop: hp(1.5) }}>AND   </_Text>
 
                     <View style={{ flexDirection: 'row', width: wp(40) }}>
-                        {/* <DatePicker
-                            defaultDate={new Date()}
-                            // minimumDate={new Date(2018, 1, 1)}
-                            //maximumDate={new Date(2018, 12, 31)}
-                            locale={"en"}
-                            // timeZoneOffsetInMinutes={undefined}
-                            modalTransparent={false}
-                            animationType={"fade"}
-                            androidMode={"default"}
-                            placeHolderText="To Date"
-                            textStyle={{ marginTop: hp(0.5), fontSize: 20 }}
-                            placeHolderTextStyle={{ color: "gray", fontSize: 20 }}
-                            onDateChange={() => this.setToDate()}
-                        /> */}
+
                         <ToDatePicker
                             dateLabel="To Date"
                             setToDate={(d) => this.setToDate(d)}
@@ -411,8 +397,6 @@ class SearchScreen extends Component {
             </View>
         )
     }
-
-
 
 
 
@@ -604,7 +588,7 @@ class SearchScreen extends Component {
 
         const list = allParameterData && allParameterData.melting
 
-        let statusArray = [{ 'id': '1', 'status': 'Available' }, { 'id': '2', 'status': 'Sold' }]
+        let statusArray = [{ 'id': '1', 'status': 'In Stock' }, { 'id': '2', 'status': 'On Order' }]
 
         let headerTheme = allParameterData.theme_color ? allParameterData.theme_color : ''
 
@@ -647,8 +631,8 @@ class SearchScreen extends Component {
                         {this.productReleaseDate()}
                     </View>
 
-                    <View style={{ paddingVertical: hp(1), marginHorizontal: wp(3) }}>
-                        <_Text fsHeading>Product Status:</_Text>
+                    <View style={{ paddingTop: hp(1), marginHorizontal: wp(3) }}>
+                        <_Text fsHeading style={{ marginTop: 10 }}>Product Status:</_Text>
                         <Picker
                             iosIcon={<Icon type='Feather' name="arrow-down" style={{ marginRight: hp(1.5), fontSize: 22, }} />}
                             mode="dropdown"
@@ -663,11 +647,11 @@ class SearchScreen extends Component {
                     </View>
 
 
-                    <View style={{ paddingVertical: hp(1), }}>
+                    {/* <View style={{ paddingVertical: hp(1), }}>
                         {this.selectKarat()}
-                    </View>
+                    </View> */}
 
-                    <View style={{ paddingHorizontal: wp(2), }}>
+                    <View style={{ paddingHorizontal: wp(2), marginTop: -5 }}>
                         <SectionedMultiSelect
                             items={collection}
                             IconRenderer={Icon2}
@@ -687,7 +671,6 @@ class SearchScreen extends Component {
                             showRemoveAll={true}
                         />
                     </View>
-
 
                 </ScrollView>
 
