@@ -79,12 +79,9 @@ export default class SubCategoryList extends Component {
     }
 
     getProductGridOrNot = (data) => {
-        console.warn("data==", data);
         if (data.subcategory.length === 0) {
-            console.warn("in if");
             this.props.navigation.navigate("ProductGrid", { gridData: data })
         } else if (data.subcategory.length > 0) {
-            console.warn("in else");
             this.props.navigation.push("SubCategoryList", { subcategory: data })
         }
     }
@@ -93,7 +90,7 @@ export default class SubCategoryList extends Component {
     render() {
         const { subcategoryData } = this.state
         return (
-            <SafeAreaView style={{ flex: 1, backgroundColor: '#f3fcf9' }}>
+            <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
                 <_CustomHeader
                     Title={'Sub Category'}
                     RightBtnIcon2={require('../../../assets/shopping-cart.png')}

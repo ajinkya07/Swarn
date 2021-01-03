@@ -212,21 +212,19 @@ class CategoryContainer extends Component {
 
                     <View style={{ alignContent: 'center', justifyContent: 'center', flex: 0.70 }}>
                       <_Text numberOfLines={2} fwSmall
-                        //textColor={color.white}
                         fsMedium style={{ marginRight: hp(3), marginLeft: Platform.OS === 'ios' ? hp(1) : 0 }}>
                         {capitalizeFirstLetter(item.col_name)}
                       </_Text>
                     </View>
                   </View>
-                  {index !== 9 &&
-                    <View
-                      style={{
-                        paddingTop: hp(1), marginLeft: wp(22), marginRight: wp(3),
-                        alignSelf: 'stretch',
-                        borderBottomColor: '#D3D3D3',
-                        borderBottomWidth: 1,
-                      }}
-                    />}
+                  <View
+                    style={{
+                      paddingTop: hp(1), marginLeft: wp(22), marginRight: wp(3),
+                      alignSelf: 'stretch',
+                      borderBottomColor: '#D3D3D3',
+                      borderBottomWidth: 1,
+                    }}
+                  />
                 </Animatable.View>
               </TouchableOpacity>
             )

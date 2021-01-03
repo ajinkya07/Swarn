@@ -355,6 +355,7 @@ class OrderHistoryDetail extends Component {
 
     const summaryData = orderHistoryDetailsData && orderHistoryDetailsData.order_summary
 
+    console.log("summaryData", summaryData);
     return (
       <>
         <SafeAreaView style={{ flex: 1, backgroundColor: color.white }}>
@@ -437,7 +438,7 @@ class OrderHistoryDetail extends Component {
             </View>
           )}
 
-          {this.state.detailModal && (
+          {this.state.detailModal && summaryData && (
             <Modal
               isVisible={this.state.detailModal}
               transparent={true}

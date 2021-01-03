@@ -51,10 +51,10 @@ class _Header extends Component {
                 <View style={{ flexDirection: 'row', }}>
                   <Image
                     source={require('../../assets/swarna-Home-Icon.png')}
-                    style={{ height: hp(5.5), top: 5 }}
+                    style={{ height: hp(5.5), top: Platform.OS == 'ios' ? -3 : 5 }}
                     resizeMode={'contain'}
                   />
-                  <View style={{ marginLeft: 5, marginTop: 2 }}>
+                  <View style={{ marginLeft: 5, marginTop: Platform.OS == 'ios' ? 0 : 2 }}>
                     <Text
                       style={{
                         fontFamily: 'Lato-Bold',

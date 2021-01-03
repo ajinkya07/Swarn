@@ -8,7 +8,8 @@ export const urls = {
 
     imageUrl: "http://swrnsarita.jewelmarts.in/",
 
-
+    // http://swrnsarita.jewelmarts.in/admin_panel/privacy_policy
+    // muskteck@gmail.com
     Login: {
         url: url + "User_registration/userLogin",
     },
