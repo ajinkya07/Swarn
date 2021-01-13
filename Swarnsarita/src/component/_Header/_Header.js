@@ -76,6 +76,7 @@ class _Header extends Component {
                   </View>
 
                 </View>
+
               )}
           </Button>
         </View>

@@ -177,7 +177,7 @@ class Notification extends Component {
                 style={{
                     justifyContent: 'center',
                     alignItems: 'center',
-                    bottom: hp(8),
+                    bottom: hp(25),
                     flex: 1
                 }}>
                 <Image
@@ -197,7 +197,7 @@ class Notification extends Component {
         const { notificationData, isFetching } = this.props
 
         return (
-            <SafeAreaView style={{ flex: 1, backgroundColor: '#f3fcf9' }}>
+            <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
                 <_CustomHeader
                     Title={'Notifications'}
                     LeftBtnPress={() => this.props.navigation.goBack()}

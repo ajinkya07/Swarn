@@ -259,6 +259,7 @@ class Customizable extends Component {
 
   openCamera = () => {
     ImagePicker.openCamera({
+      mediaType: "photo",
       width: wp(95),
       height: hp(35),
       cropping: false,
@@ -272,6 +273,7 @@ class Customizable extends Component {
 
   openImagePicker = () => {
     ImagePicker.openPicker({
+      mediaType: "photo",
       width: wp(95),
       height: hp(35),
       includeBase64: true,

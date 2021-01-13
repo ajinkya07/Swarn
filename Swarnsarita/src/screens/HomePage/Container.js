@@ -219,7 +219,6 @@ class Container extends Component {
           </TouchableWithoutFeedback>
         </Modal>
 
-
       </SafeAreaView>
     );
   }

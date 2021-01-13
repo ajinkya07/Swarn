@@ -1007,6 +1007,7 @@ class HomePage extends Component {
     const { homePageData, isFetching, allParameterData } = this.props;
     const { imageToBeDisplayed, finalCollection, collection } = this.state;
 
+    console.log("homePageData", homePageData);
     var bannerData =
       homePageData && homePageData.brand_banner
         ? homePageData.brand_banner

@@ -793,7 +793,6 @@ class CartContainer extends Component {
     const { wishlistData } = this.props
 
     let baseurl = urls.imageUrl + data.zoom_image;
-    console.log("wishlistData", wishlistData);
     return (
       <TouchableOpacity onPress={() => this.setToggleView(data)}>
         <View style={styles.tabCartTopContainer}>
@@ -865,6 +864,7 @@ class CartContainer extends Component {
               </View>
 
             </View>
+
             <View style={styles.tabCartBottomContainer}>
               <TouchableOpacity onPress={() => this.moveFromwishlist(data)}>
                 <View style={styles.tabCartBottomImgView}>
@@ -1071,31 +1071,7 @@ class CartContainer extends Component {
         {isToogleTwo && openMoreDetailsIdCart === item.cart_wish_id ? (
           <>
             <View style={styles.tabCartMiddleContainer}>
-              {/* <View style={styles.cartDetail}>
-                <Text style={styles.textColor}>gross wt:</Text>
-                <Text style={styles.text}>{parseInt(item.values[0]).toFixed(2)}</Text>
-              </View>
-              <View style={styles.cartDetail}>
-                <Text style={styles.textColor}>net wt:</Text>
-                <Text style={styles.text}>{parseInt(item.values[1]).toFixed(2)}</Text>
-              </View>
-              <View style={styles.cartDetail}>
-                <Text style={styles.textColor}>quantity:</Text>
-                <Text style={styles.text}>{item.values[2]}</Text>
-              </View>
-              <View style={styles.cartDetail}>
-                <Text style={styles.textColor}>remarks: </Text>
-                <Text style={styles.text}>{item.values[3]}</Text>
-              </View>
-              <View style={styles.cartDetail}>
-                <Text style={styles.textColor}>length:</Text>
-                <Text style={styles.text}>{item.values[4]}</Text>
-              </View>
-              <View style={styles.cartDetail}>
-                <Text style={styles.textColor}>weight:</Text>
-                <Text style={styles.text}>{parseInt(item.values[5]).toFixed(2)}</Text>
-              </View>
-            */}
+
               <View style={{ flexDirection: 'column' }}>
                 {cartData[0].keys.map(
                   (key, i) => {
@@ -1442,9 +1418,7 @@ class CartContainer extends Component {
                   />
                 </TabHeading>
               }>
-              {wishlistData.length > 0 &&
-                !isFetching &&
-                this.favoriteDetail(wishlistData)}
+              {wishlistData.length > 0 && !isFetching && this.favoriteDetail(wishlistData)}
             </Tab>
           </Tabs>
 
