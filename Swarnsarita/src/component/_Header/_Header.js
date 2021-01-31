@@ -39,6 +39,7 @@ class _Header extends Component {
           paddingVertical: Platform.OS === 'ios' ? 5 : 2,
           marginLeft: -5,
           backgroundColor: headerColor ? '#' + headerColor : '#fff',
+          alignItems: 'center'
         }}>
         <View>
           <Button transparent>

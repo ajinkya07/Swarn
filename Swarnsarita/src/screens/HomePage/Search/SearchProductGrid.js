@@ -391,7 +391,7 @@ class SearchProductGrid extends Component {
       iconView,
     } = ProductGridStyle;
 
-    let url = urls.imageUrl + 'public/backend/product_images/small_image/'
+    let url = urls.imageUrl + 'public/backend/product_images/thumb_image/'
 
     const { gridData } = this.state
 
@@ -468,7 +468,7 @@ class SearchProductGrid extends Component {
             </View>
 
             <View style={latestTextView2}>
-              <View style={{ marginLeft: 5 }}>
+              <View style={{ width: wp(15), marginLeft: 5 }}>
                 <_Text
                   numberOfLines={1}
                   fsSmall
@@ -495,19 +495,19 @@ class SearchProductGrid extends Component {
             </View>
 
             <View style={latestTextView2}>
-              <View style={{ marginLeft: 5 }}>
+              <View style={{ width: wp(15), marginLeft: 5 }}>
                 <_Text
                   numberOfLines={1}
                   fsSmall
                   textColor={'#000000'}
                   style={{ ...Theme.ffLatoRegular13 }}>
-                  Name :{' '}
+                  Status :{' '}
                 </_Text>
               </View>
               <View
                 style={{
                   marginRight: 10,
-                  width: wp(28),
+                  width: wp(24),
                   justifyContent: 'flex-end',
                   alignItems: 'flex-end',
                 }}>
@@ -573,7 +573,7 @@ class SearchProductGrid extends Component {
             )}
           </View>
         </View>
-      </TouchableOpacity>
+      </TouchableOpacity >
     );
   };
 
@@ -904,7 +904,6 @@ class SearchProductGrid extends Component {
                       width: wp(90),
                       marginTop: hp(0.5),
                     }}
-                    resizeMode='stretch'
                   />
                   {/* 
                    <FastImage

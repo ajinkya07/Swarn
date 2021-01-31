@@ -136,6 +136,8 @@ export const urls = {
     sendFCMToken: {
         url: url + 'Worker/send_gcm'
     },
-
+    TotalFilteredCount: {
+        url: url + "Products_Count"
+    }
 
 }

@@ -176,7 +176,7 @@ class CategoryContainer extends Component {
 
         <View style={{
           justifyContent: 'center', width: wp(100),
-          marginBottom: !fromSeeMore ? 0 : hp(9)
+          flex: 1, marginBottom: hp(1)
         }}>
           <FlatList
             onRefresh={() => this.onRefresh()}
@@ -192,7 +192,7 @@ class CategoryContainer extends Component {
                       {item.image_name != '' ?
                         <Image
                           style={{
-                            height: hp(10), width: hp(10), borderRadius: 10,
+                            height: hp(10), width: hp(10),
                             borderWidth: 0.4, borderColor: color.gray
                           }}
                           source={{ uri: baseUrl + item.image_name }}
@@ -201,10 +201,11 @@ class CategoryContainer extends Component {
                         : item.image_name == '' ?
                           <Image
                             style={{
-                              height: hp(10), width: hp(10), borderRadius: 10,
+                              height: hp(10), width: hp(10),
                               borderWidth: 0.4, borderColor: color.gray
                             }}
                             source={IconPack.APP_LOGO}
+                            resizeMode='contain'
                           />
                           : null
                       }
@@ -230,6 +231,7 @@ class CategoryContainer extends Component {
             )
             }
           />
+
         </View>
 
         {(!categories || categories.length === 0) ? this.noDataFound(this.props.errorMsg) : null}

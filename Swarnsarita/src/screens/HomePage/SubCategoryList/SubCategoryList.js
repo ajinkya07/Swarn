@@ -40,7 +40,7 @@ export default class SubCategoryList extends Component {
                             {item.image_name != '' ?
                                 <Image
                                     style={{
-                                        height: hp(10), width: hp(10), borderRadius: 10,
+                                        height: hp(10), width: hp(10),
                                         borderWidth: 0.4, borderColor: color.gray
                                     }}
                                     source={{ uri: baseUrl + item.image_name }}
@@ -49,10 +49,11 @@ export default class SubCategoryList extends Component {
                                 : item.image_name == '' ?
                                     <Image
                                         style={{
-                                            height: hp(10), width: hp(10), borderRadius: 10,
+                                            height: hp(10), width: hp(10),
                                             borderWidth: 0.4, borderColor: color.gray
                                         }}
                                         source={IconPack.APP_LOGO}
+                                        resizeMode='contain'
                                     />
                                     : null
                             }

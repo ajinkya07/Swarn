@@ -33,7 +33,9 @@ import {
   addProductToWishlist,
   addProductToCart,
   addRemoveProductFromCartByOne,
-  getProductTotalCount
+  getProductTotalCount,
+  getTotalFilteredCount
+
 } from '@productGrid/ProductGridAction';
 
 import { getTotalCartCount, allParameters } from '@homepage/HomePageAction';
@@ -113,7 +115,11 @@ class ProductGrid extends Component {
       selectedProducts: [],
 
       productTotalcountSuccessVersion: 0,
-      productTotalcountErrorVersion: 0
+      productTotalcountErrorVersion: 0,
+      isFromfilter: false,
+      filteredTotalcountSuccessVersion: 0,
+      filteredTotalcountErrorVersion: 0,
+      filteredTotalcountState: 0
 
     };
     userId = global.userId;
@@ -207,7 +213,9 @@ class ProductGrid extends Component {
       successTotalCartCountVersion,
       errorTotalCartCountVersion,
       productTotalcountSuccessVersion,
-      productTotalcountErrorVersion
+      productTotalcountErrorVersion,
+      filteredTotalcountSuccessVersion,
+      filteredTotalcountErrorVersion
 
     } = nextProps;
     let newState = null;
@@ -348,6 +356,19 @@ class ProductGrid extends Component {
       };
     }
 
+    if (filteredTotalcountSuccessVersion > prevState.filteredTotalcountSuccessVersion) {
+      newState = {
+        ...newState,
+        filteredTotalcountSuccessVersion: nextProps.filteredTotalcountSuccessVersion,
+      };
+    }
+    if (filteredTotalcountErrorVersion > prevState.filteredTotalcountErrorVersion) {
+      newState = {
+        ...newState,
+        filteredTotalcountErrorVersion: nextProps.filteredTotalcountErrorVersion,
+      };
+    }
+
     return newState;
   }
 
@@ -361,6 +382,7 @@ class ProductGrid extends Component {
       addProductToCartData,
       productAddToCartPlusOneData,
       totalCartCountData,
+      filteredTotalcount
     } = this.props;
 
     const { categoryData, page, selectedSortById, gridData, fromExclusive } = this.state;
@@ -433,6 +455,10 @@ class ProductGrid extends Component {
           });
         }
       }
+    }
+
+    if (this.state.filteredTotalcountSuccessVersion > prevState.filteredTotalcountSuccessVersion) {
+      this.setState({ filteredTotalcountState: filteredTotalcount });
     }
 
     if (this.state.successAddProductToWishlistVersion > prevState.successAddProductToWishlistVersion) {
@@ -1248,24 +1274,59 @@ class ProductGrid extends Component {
   };
 
   setSortBy = item => {
-    const { categoryData, page } = this.state;
+    const { categoryData, page, isFromfilter } = this.state;
 
-    const data = new FormData();
-    data.append('table', 'product_master');
-    data.append('mode_type', 'normal');
-    data.append('collection_id', categoryData.id);
-    data.append('user_id', userId);
-    data.append('record', 10);
-    data.append('page_no', 0);
-    data.append('sort_by', item.value);
+    console.log("isFromfilter", isFromfilter);
+    if (isFromfilter) {
+      const {
+        page,
+        fromValue,
+        fromValue1,
+        toValue1,
+        toValue,
+        isGrossWtSelected,
+      } = this.state;
 
-    this.props.getProductSubCategoryData(data);
+      const filterData2 = new FormData();
+      filterData2.append('table', 'product_master');
+      filterData2.append('mode_type', 'filter_data');
+      filterData2.append('collection_id', categoryData.id);
+      filterData2.append('user_id', userId);
+      filterData2.append('record', 10);
+      filterData2.append('page_no', 0);
+      filterData2.append('sort_by', item.value);
+      filterData2.append('min_gross_weight', fromValue);
+      filterData2.append('max_gross_weight', toValue);
 
-    this.setState({
-      isSortByModal: false,
-      selectedSortById: item.value,
-      page: 0,
-    });
+      filterData2.append('min_length', fromValue1);
+      filterData2.append('max_length', toValue1);
+
+      this.props.applyFilterProducts(filterData2);
+
+      this.setState({
+        isSortByModal: false,
+        selectedSortById: item.value,
+        page: 0,
+      });
+    }
+    if (!isFromfilter) {
+      const data = new FormData();
+      data.append('table', 'product_master');
+      data.append('mode_type', 'normal');
+      data.append('collection_id', categoryData.id);
+      data.append('user_id', userId);
+      data.append('record', 10);
+      data.append('page_no', 0);
+      data.append('sort_by', item.value);
+
+      this.props.getProductSubCategoryData(data);
+
+      this.setState({
+        isSortByModal: false,
+        selectedSortById: item.value,
+        page: 0,
+      });
+    }
   };
 
   seperator = () => {
@@ -1281,10 +1342,10 @@ class ProductGrid extends Component {
   };
 
   LoadMoreData = () => {
-    const { productTotalcount } = this.props
-    const { gridData } = this.state
+    const { productTotalcount, filteredTotalcount } = this.props
+    const { gridData, isFromfilter } = this.state
 
-    let count = productTotalcount.count
+    let count = isFromfilter ? filteredTotalcount.count : productTotalcount.count;
 
 
     if (gridData.length !== count && gridData.length < count) {
@@ -1303,38 +1364,68 @@ class ProductGrid extends Component {
 
 
   LoadRandomData = () => {
-    const { categoryData, page, fromExclusive } = this.state;
+    const { categoryData, page, isFromfilter, fromExclusive } = this.state;
     const { allParameterData } = this.props;
-
 
     let accessCheck = allParameterData && allParameterData.access_check
 
-    if (accessCheck == '1') {
-      if (categoryData && !fromExclusive) {
-        const data = new FormData();
-        data.append('table', 'product_master');
-        data.append('mode_type', 'normal');
-        data.append('collection_id', categoryData.id);
-        data.append('user_id', userId);
-        data.append('record', 10);
-        data.append('page_no', page);
-        data.append('sort_by', '6');
 
-        this.props.getProductSubCategoryData(data);
-      }
-      if (categoryData && fromExclusive) {
-        const excl3 = new FormData();
-        excl3.append('table', 'product_master');
-        excl3.append('mode_type', 'my_collection');
-        excl3.append('collection_id', 0);
-        excl3.append('user_id', userId);
-        excl3.append('record', 10);
-        excl3.append('page_no', page);
-        excl3.append('sort_by', '6');
-        excl3.append('my_collection_id', categoryData.id);
+    if (isFromfilter) {
+      const {
+        categoryData,
+        page,
+        fromValue,
+        fromValue1,
+        toValue1,
+        toValue,
+        isGrossWtSelected,
+      } = this.state;
 
-        this.props.getProductSubCategoryData(excl3);
+      const filterData1 = new FormData();
+      filterData1.append('table', 'product_master');
+      filterData1.append('mode_type', 'filter_data');
+      filterData1.append('collection_id', categoryData.id);
+      filterData1.append('user_id', userId);
+      filterData1.append('record', 10);
+      filterData1.append('page_no', page);
+      filterData1.append('sort_by', '2');
+      filterData1.append('min_gross_weight', fromValue);
+      filterData1.append('max_gross_weight', toValue);
 
+      filterData1.append('min_length', fromValue1);
+      filterData1.append('max_length', toValue1);
+
+      this.props.applyFilterProducts(filterData1);
+
+    }
+    else if (!isFromfilter) {
+      if (accessCheck == '1') {
+        if (categoryData && !fromExclusive) {
+          const data = new FormData();
+          data.append('table', 'product_master');
+          data.append('mode_type', 'normal');
+          data.append('collection_id', categoryData.id);
+          data.append('user_id', userId);
+          data.append('record', 10);
+          data.append('page_no', page);
+          data.append('sort_by', '6');
+
+          this.props.getProductSubCategoryData(data);
+        }
+        if (categoryData && fromExclusive) {
+          const excl3 = new FormData();
+          excl3.append('table', 'product_master');
+          excl3.append('mode_type', 'my_collection');
+          excl3.append('collection_id', 0);
+          excl3.append('user_id', userId);
+          excl3.append('record', 10);
+          excl3.append('page_no', page);
+          excl3.append('sort_by', '6');
+          excl3.append('my_collection_id', categoryData.id);
+
+          this.props.getProductSubCategoryData(excl3);
+
+        }
       }
     }
     else {
@@ -1431,6 +1522,7 @@ class ProductGrid extends Component {
         this.setState({
           fromValue: filterParamsData.gross_weight[0].min_gross_weight,
           toValue: filterParamsData.gross_weight[0].max_gross_weight,
+          isFromfilter: false
         });
       }
 
@@ -1438,6 +1530,7 @@ class ProductGrid extends Component {
         this.setState({
           fromValue1: filterParamsData.max_length[0].min_length,
           toValue1: filterParamsData.max_length[0].max_length,
+          isFromfilter: false
         });
       }
     }
@@ -1474,25 +1567,26 @@ class ProductGrid extends Component {
     filterData.append('min_length', fromValue1);
     filterData.append('max_length', toValue1)
 
-
     this.props.applyFilterProducts(filterData);
 
-    this.setState({ isFilterModalVisible: false, page: 0 });
+    this.props.getTotalFilteredCount(filterData)
 
-    if (filterParamsData && filterParamsData.length === undefined) {
-      if (filterParamsData.gross_weight) {
-        this.setState({
-          fromValue: filterParamsData.gross_weight[0].min_gross_weight,
-          toValue: filterParamsData.gross_weight[0].max_gross_weight,
-        });
-      }
-      if (filterParamsData.max_length) {
-        this.setState({
-          fromValue1: filterParamsData.max_length[0].min_length,
-          toValue1: filterParamsData.max_length[0].max_length,
-        });
-      }
-    }
+    this.setState({ isFilterModalVisible: false, page: 0, isFromfilter: true });
+
+    // if (filterParamsData && filterParamsData.length === undefined) {
+    //   if (filterParamsData.gross_weight) {
+    //     this.setState({
+    //       fromValue: filterParamsData.gross_weight[0].min_gross_weight,
+    //       toValue: filterParamsData.gross_weight[0].max_gross_weight,
+    //     });
+    //   }
+    //   if (filterParamsData.max_length) {
+    //     this.setState({
+    //       fromValue1: filterParamsData.max_length[0].min_length,
+    //       toValue1: filterParamsData.max_length[0].max_length,
+    //     });
+    //   }
+    // }
   };
 
   showNetWeightOrNot = () => {
@@ -2141,7 +2235,6 @@ class ProductGrid extends Component {
                       width: wp(90),
                       marginTop: hp(0.5)
                     }}
-                    resizeMode='stretch'
                   />
                   {/* <FastImage
                     style={{
@@ -2295,6 +2388,10 @@ function mapStateToProps(state) {
     productTotalcountSuccessVersion: state.productGridReducer.productTotalcountSuccessVersion,
     productTotalcountErrorVersion: state.productGridReducer.productTotalcountErrorVersion,
 
+    filteredTotalcount: state.productGridReducer.filteredTotalcount,
+    filteredTotalcountSuccessVersion: state.productGridReducer.filteredTotalcountSuccessVersion,
+    filteredTotalcountErrorVersion: state.productGridReducer.filteredTotalcountErrorVersion,
+
   };
 }
 
@@ -2310,7 +2407,8 @@ export default connect(
     addRemoveProductFromCartByOne,
     getTotalCartCount,
     allParameters,
-    getProductTotalCount
+    getProductTotalCount,
+    getTotalFilteredCount
   },
 )(withNavigationFocus(ProductGrid));
 

@@ -36,7 +36,10 @@ import {
 
   PRODUCT_TOTAL_COUNT_ERROR,
   PRODUCT_TOTAL_COUNT_SUCCESS,
-  PRODUCT_TOTAL_COUNT
+  PRODUCT_TOTAL_COUNT,
+
+  FILTERED_TOTAL_COUNT_ERROR,
+  FILTERED_TOTAL_COUNT_SUCCESS
 
 
 } from "@redux/types";
@@ -276,6 +279,24 @@ export function getProductTotalCount(data) {
         dispatch(
           onFailure(strings.serverFailedMsg, PRODUCT_TOTAL_COUNT_ERROR)
         );
+      });
+  }
+}
+
+
+export function getTotalFilteredCount(data) {
+  return dispatch => {
+    axios.post(urls.TotalFilteredCount.url, data, header).then(response => {
+      if (response.data.ack === '1') {
+        console.log("response.data.ack", response.data);
+        dispatch(onSuccess(response.data.data, FILTERED_TOTAL_COUNT_SUCCESS))
+      }
+      else {
+        dispatch(onFailure(response.data.msg, FILTERED_TOTAL_COUNT_ERROR))
+      }
+    })
+      .catch(function (error) {
+        dispatch(onFailure(strings.serverFailedMsg, FILTERED_TOTAL_COUNT_ERROR));
       });
   }
 }

@@ -349,13 +349,8 @@ class OrderHistoryDetail extends Component {
     const { orderHistoryDetailsData, allParameterData } = this.props;
     const { imageToBeDisplayed } = this.state;
 
-
-    let headerTheme = allParameterData.theme_color ? allParameterData.theme_color : ''
-
-
     const summaryData = orderHistoryDetailsData && orderHistoryDetailsData.order_summary
 
-    console.log("summaryData", summaryData);
     return (
       <>
         <SafeAreaView style={{ flex: 1, backgroundColor: color.white }}>

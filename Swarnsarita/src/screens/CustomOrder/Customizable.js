@@ -87,7 +87,6 @@ class Customizable extends Component {
   componentDidMount = async () => {
     const { allParameterData } = this.props
 
-
     if (allParameterData && allParameterData.melting) {
       this.setState({
         karatValue: allParameterData.melting[0].id
@@ -158,12 +157,6 @@ class Customizable extends Component {
     }
     if (this.state.errorCustomOrderVersion > prevState.errorCustomOrderVersion) {
       this.showToast(this.props.errorMsg, 'danger');
-    }
-    if (this.state.successAllParameterVersion > prevState.successAllParameterVersion) {
-      let all = allParameterData && allParameterData.melting
-      // this.setState({
-      //   karatValue:all[0].id
-      // })
     }
   }
 

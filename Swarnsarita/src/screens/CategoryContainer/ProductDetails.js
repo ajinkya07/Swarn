@@ -663,7 +663,7 @@ class ProductDetails extends React.Component {
                   useNativeDriver: true,
                 },
               )}
-              scrollEventThrottle={16}
+              scrollEventThrottle={10}
             >
               <SafeAreaView style={styles.safeAreaViewStyle}>
                 <View style={{ flex: 1 }}>
