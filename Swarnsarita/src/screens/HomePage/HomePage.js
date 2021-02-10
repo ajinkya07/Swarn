@@ -1026,7 +1026,7 @@ class HomePage extends Component {
           {/* CATEGORY DESIGNS */}
           {categoryData &&
             categoryData.map(item => (
-              <View style={{ top: -10 }}>
+              <View style={{ top: -10, left: 2 }}>
                 {this.categoryViewDesignNew(item, item.position)}
               </View>
             ))}
