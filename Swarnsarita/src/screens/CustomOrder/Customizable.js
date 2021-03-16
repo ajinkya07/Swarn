@@ -303,8 +303,6 @@ class Customizable extends Component {
     var date1 = moment(timeStampDate, 'DD-MM-YYYY').valueOf();
     var date2 = moment(date, 'DD-MM-YYYY').valueOf();
 
-    console.log("this.state", this.state);
-
     if (imageData) {
       var photo = {
         uri:

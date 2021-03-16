@@ -1024,12 +1024,11 @@ class HomePage extends Component {
           {this.carausalView2(bannerData)}
 
           {/* CATEGORY DESIGNS */}
-          {categoryData &&
-            categoryData.map(item => (
-              <View style={{ top: -10, left: 2 }}>
-                {this.categoryViewDesignNew(item, item.position)}
-              </View>
-            ))}
+          {categoryData && categoryData.map(item => (
+            <View style={{ top: -10, left: 2 }}>
+              {this.categoryViewDesignNew(item, item.position)}
+            </View>
+          ))}
 
 
           {/* BANNER */}
